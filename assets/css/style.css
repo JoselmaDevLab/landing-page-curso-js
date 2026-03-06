@@ -3,6 +3,7 @@
 :root {
   --primary-color: #0a1128;
   --white-color: #ffffff;
+  --light-gray-color: #eeeeee;
   --gap: 3rem;
 }
 
@@ -56,6 +57,10 @@ h6 {
   font-size: 3.5rem; /* 35px */
 }
 
+a {
+  text-decoration: none; /* remove o sublinhado dos links */
+}
+
 .main-bg {
   background-image: url(/assets/img/imagem1.png);
   background-size: cover; /* faz a imagem de fundo cobrir toda a área disponível */
@@ -75,3 +80,60 @@ h6 {
 .section {
   min-height: 100vh; /* faz a seção ocupar toda a altura da tela. É a altura minima */
 }
+
+.menu {
+  background: var(--white-color);
+  position: fixed; /* fixa o menu na tela, mesmo quando o usuário rolar a página */
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid var(--light-gray-color);
+}
+
+.menu-content {
+  display: flex; /* define o layout do menu como flexbox, permitindo alinhar os itens horizontalmente. coloca os itens do menu em uma linha */
+  justify-content: space-between; /* distribui os itens do menu igualmente, com espaço entre eles */
+  align-items: center; /* alinha os itens do menu verticalmente ao centro */
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.menu h1 {
+  font-size: 2.3rem; /* 23px */
+  color: var(--primary-color);
+}
+
+.menu h1 a {
+  color: inherit; /* herda a cor do elemento pai, mantendo a consistência visual */
+}
+
+.menu ul {
+  list-style: none; /* remove os marcadores de lista */
+  display: flex; /* define o layout da lista como flexbox, permitindo alinhar os itens horizontalmente. coloca os itens do menu em uma linha */
+}
+
+.menu ul li a {
+  display: block; /* torna o link um elemento de bloco, permitindo que ele ocupe toda a área do item da lista. Por padrao ´display block é inline então ele não empurra o container pra baixo*/
+  padding: 2rem; /* adiciona um espaçamento interno de 20px em todos os lados do link */
+  font-size: 1.8rem; /* 18px */
+  color: var(--primary-color);
+  position: relative; /* define a posição do link como relativa, permitindo que o pseudo-elemento ::after seja posicionado em relação a ele */
+}
+
+.menu ul li a::after {
+  content: ""; /* cria um pseudo-elemento vazio */
+  position: absolute; /* posiciona o pseudo-elemento de forma absoluta em relação ao elemento pai */
+  left: 50%; /* posiciona o pseudo-elemento no centro horizontal do elemento pai */
+  bottom: 1rem; /* posiciona o pseudo-elemento a 10px da parte inferior do elemento pai */
+  width: 0; /* define a largura inicial do pseudo-elemento como 0, para que ele não seja visível */
+  height: 0.2rem; /* define a altura do pseudo-elemento como 2px, criando uma linha fina */
+  background-color: crimson; /* define a cor de fundo do pseudo-elemento como vermelho, para destacar a linha */
+  transition: all 300ms ease-in-out; /* adiciona uma transição suave para todas as propriedades do pseudo-elemento, com duração de 300ms e efeito de aceleração e desaceleração */
+}
+
+.menu ul li a:hover::after {
+  left: 25%; /* reposiciona o pseudo-elemento para a esquerda, criando um efeito de movimento ao passar o mouse sobre o link */
+  width: 50%; /* aumenta a largura do pseudo-elemento para 50%, tornando-o visível e criando um efeito de destaque ao passar o mouse sobre o link */
+}
+
+/*::after e :hover são recursos CSS para estilização interativa. ::after cria um pseudo-elemento visual após o conteúdo de um seletor (comum com content: "").  Insere conteúdo decorativo (texto, ícones, formas) após o elemento alvo sem alterar o HTML. Exige a propriedade content: "". Enquanto :hover é uma pseudo-classe que aplica estilos quando o usuário passa o mouse sobre um elemento.  Ativa estilos quando o cursor do mouse está sobre o elemento, usado para botões, menus e links. Juntos, criam efeitos dinâmicos ao interagir, como linhas sublinhadas animadas.*/
