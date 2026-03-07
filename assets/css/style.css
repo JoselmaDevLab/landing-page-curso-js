@@ -4,13 +4,13 @@
   --primary-color: #0a1128;
   --white-color: #ffffff;
   --light-gray-color: #eeeeee;
+  --secondary-color: crimson;
   --gap: 3rem;
 }
 
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 html {
@@ -21,6 +21,7 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: 2rem; /* 16px */
   color: var(--primary-color);
+  line-height: 1.5;
 }
 
 h1,
@@ -39,6 +40,9 @@ h1 {
 
 h2 {
   font-size: 5.5rem; /* 55px */
+  text-transform: uppercase;
+  height: -6rem;
+  line-height: 1;
 }
 
 h3 {
@@ -68,13 +72,14 @@ a {
   color: var(--white-color);
 }
 
-.white.bg {
+.white-bg {
   background-color: var(--white-color);
 }
 
 .main-content {
-  max-width: 1200px;
+  max-width: 120rem;
   margin: 0 auto;
+  padding: var(--gap);
 }
 
 .section {
@@ -82,12 +87,12 @@ a {
 }
 
 .menu {
-  background: var(--white-color);
   position: fixed; /* fixa o menu na tela, mesmo quando o usuário rolar a página */
   top: 0;
   left: 0;
   width: 100%;
-  border-bottom: 1px solid var(--light-gray-color);
+  z-index: 1;
+  border-bottom: 0.1rem solid var(--light-gray-color);
 }
 
 .menu-content {
@@ -96,6 +101,41 @@ a {
   align-items: center; /* alinha os itens do menu verticalmente ao centro */
   padding-top: 0;
   padding-bottom: 0;
+}
+
+.menu-spacing {
+  height: 6.5rem; /* adiciona um espaçamento de 70px para compensar a altura do menu fixo, evitando que o conteúdo fique oculto atrás do menu */
+}
+
+.intro-text-content,
+.intro-img {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+.intro-text-content h2 {
+  font-size: 6rem;
+  margin-bottom: 5rem;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.intro-img img,
+.intro-img svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.intro-content {
+  position: relative; /* define a posição do conteúdo introdutório como relativa, permitindo que os elementos filhos sejam posicionados em relação a ele */
+  display: grid; /* define o layout do conteúdo introdutório como grid, permitindo organizar os elementos em colunas e linhas */
+  grid-template-columns: 1fr 1.5fr; /* cria duas colunas de igual largura */
+  gap: var(
+    --gap
+  ); /* adiciona um espaçamento entre as colunas, usando a variável de espaçamento definida no :root */
+  height: 100vh; /* faz o conteúdo introdutório ocupar toda a altura da tela */
+  top: -15rem;
 }
 
 .menu h1 {
@@ -127,7 +167,9 @@ a {
   bottom: 1rem; /* posiciona o pseudo-elemento a 10px da parte inferior do elemento pai */
   width: 0; /* define a largura inicial do pseudo-elemento como 0, para que ele não seja visível */
   height: 0.2rem; /* define a altura do pseudo-elemento como 2px, criando uma linha fina */
-  background-color: crimson; /* define a cor de fundo do pseudo-elemento como vermelho, para destacar a linha */
+  background: var(
+    --secondary-color
+  ); /* define a cor de fundo do pseudo-elemento, que será a cor da linha que aparecerá ao passar o mouse sobre o link */
   transition: all 300ms ease-in-out; /* adiciona uma transição suave para todas as propriedades do pseudo-elemento, com duração de 300ms e efeito de aceleração e desaceleração */
 }
 
