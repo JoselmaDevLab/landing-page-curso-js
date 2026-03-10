@@ -15,6 +15,7 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth; /* serve para animar suavemente a rolagem da página quando links internos (âncoras, ex: <a href="#secao">) são clicados ou ao usar métodos de rolagem via JavaScript, substituindo o salto instantâneo padrão por uma transição fluida. */
 }
 
 body {
@@ -39,10 +40,11 @@ h1 {
 }
 
 h2 {
-  font-size: 5.5rem; /* 55px */
+  font-size: 6rem; /* 55px */
+  margin-bottom: 5rem;
   text-transform: uppercase;
   height: -6rem;
-  line-height: 1;
+  line-height: 1.2;
 }
 
 h3 {
@@ -65,6 +67,10 @@ a {
   text-decoration: none; /* remove o sublinhado dos links */
 }
 
+p {
+  margin-top: 3rem;
+}
+
 .main-bg {
   background-image: url(/assets/img/imagem1.png);
   background-size: cover; /* faz a imagem de fundo cobrir toda a área disponível */
@@ -74,6 +80,7 @@ a {
 
 .white-bg {
   background-color: var(--white-color);
+  color: var(--primary-color);
 }
 
 .main-content {
@@ -136,6 +143,15 @@ a {
   ); /* adiciona um espaçamento entre as colunas, usando a variável de espaçamento definida no :root */
   height: 100vh; /* faz o conteúdo introdutório ocupar toda a altura da tela */
   top: -15rem;
+}
+
+.top3-content {
+  max-width: 64rem;
+  display: flex;
+  height: 100vh;
+  flex-flow: column wrap;
+  justify-content: center;
+  text-align: center;
 }
 
 .menu h1 {
