@@ -194,4 +194,46 @@ p {
   width: 50%; /* aumenta a largura do pseudo-elemento para 50%, tornando-o visível e criando um efeito de destaque ao passar o mouse sobre o link */
 }
 
+.grid-one-content {
+  display: flex;
+  flex-flow: column wrap; /* organiza itens flexíveis verticalmente (em colunas) e, ao atingir o limite de altura, quebra os itens para uma nova coluna à direita. É uma abreviação para flex-direction: column e flex-wrap: wrap, ideal para listas longas que precisam preencher o espaço vertical antes de se estenderem horizontalmente.*/
+  justify-content: center;
+  height: 100vh;
+}
+
+.grid {
+  display: grid; /*Transforma o elemento em um contêiner de grade, permitindo organizar seus filhos em linhas e colunas.*/
+  grid-template-columns: repeat(
+    3,
+    1fr
+  ); /*repeat(3, ...): Diz ao CSS para repetir uma definição 3 vezes. 1fr: Significa "uma fração" (fractional unit) do espaço disponível. Como são 3 colunas de 1fr, o espaço total é dividido em 3 partes iguais. Resumo: Você terá 3 colunas com exatamente a mesma largura, e se o navegador mudar de tamanho, elas se ajustam automaticamente.
+*/
+  gap: var(--gap);
+  counter-reset: grid-counter; /*A propriedade counter-reset no CSS é usada para criar, inicializar ou reiniciar um ou mais contadores CSS, permitindo a numeração automática de elementos (como capítulos, seções ou itens de lista). Ela define o valor inicial de um contador (padrão é 0) e funciona em conjunto com counter-increment e a função counter() no content. 
+*/
+}
+
+/*GRID: Este código CSS define um contêiner com layout de grade (Grid), criando automaticamente três colunas de tamanhos iguais, que se ajustam proporcionalmente ao espaço disponível (1fr cada). É a forma mais rápida de criar um layout responsivo de três colunas (ex: 1fr 1fr 1fr).*/
+
+.grid h3 {
+  font-size: 3rem;
+  position: relative;
+  padding-left: 5rem;
+  padding-bottom: 3rem;
+}
+
+.grid h3::before {
+  counter-increment: grid-counter;
+  content: counter(grid-counter);
+  position: absolute;
+  font-size: 8rem;
+  font-style: italic;
+  top: -3rem;
+  left: -2rem;
+}
+
+/*A propriedade content no CSS é usada exclusivamente com os pseudo-elementos ::before e ::after para inserir conteúdo gerado (texto, imagens ou atributos) dinamicamente no layout sem alterar o HTML. Ela permite adicionar elementos decorativos como ícones, aspas ou contadores.Uso principal: Deve ser usada com ::before ou ::after, ex: p::before { content: "Nota: "; }.
+
+*/
+
 /*::after e :hover são recursos CSS para estilização interativa. ::after cria um pseudo-elemento visual após o conteúdo de um seletor (comum com content: "").  Insere conteúdo decorativo (texto, ícones, formas) após o elemento alvo sem alterar o HTML. Exige a propriedade content: "". Enquanto :hover é uma pseudo-classe que aplica estilos quando o usuário passa o mouse sobre um elemento.  Ativa estilos quando o cursor do mouse está sobre o elemento, usado para botões, menus e links. Juntos, criam efeitos dinâmicos ao interagir, como linhas sublinhadas animadas.*/
