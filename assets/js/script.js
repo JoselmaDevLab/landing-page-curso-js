@@ -1,1 +1,1 @@
-alert("testando conexão com o script.js");
+//alert("testando conexão com o script.js");

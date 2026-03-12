@@ -86,7 +86,7 @@ p {
 .main-content {
   max-width: 120rem;
   margin: 0 auto;
-  padding: var(--gap);
+  padding: 8rem var(--gap);
 }
 
 .section {
@@ -141,7 +141,7 @@ p {
   gap: var(
     --gap
   ); /* adiciona um espaçamento entre as colunas, usando a variável de espaçamento definida no :root */
-  height: 100vh; /* faz o conteúdo introdutório ocupar toda a altura da tela */
+  min-height: 100vh; /* faz o conteúdo introdutório ocupar toda a altura da tela */
   top: -15rem;
 }
 
@@ -149,7 +149,7 @@ p {
   max-width: 64rem;
   display: flex;
   height: 100vh;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   justify-content: center;
   text-align: center;
 }
@@ -198,7 +198,7 @@ p {
   display: flex;
   flex-flow: column wrap; /* organiza itens flexíveis verticalmente (em colunas) e, ao atingir o limite de altura, quebra os itens para uma nova coluna à direita. É uma abreviação para flex-direction: column e flex-wrap: wrap, ideal para listas longas que precisam preencher o espaço vertical antes de se estenderem horizontalmente.*/
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .grid-main-heading {
@@ -239,6 +239,21 @@ p {
   top: -4rem;
   left: -2rem;
   transform: rotate(5deg); /*rotação do elemento. no caso dos números*/
+}
+
+.gallery-img {
+  width: 100%;
+  max-width: 36rem;
+  max-height: 36rem;
+  overflow: hidden;
+}
+
+.gallery-img img {
+  transition: all 300ms ease-in-out;
+}
+
+.gallery-img img:hover {
+  transform: translate(-3%, 3%) scale(1.2) rotate(5deg);
 }
 
 /*A propriedade content no CSS é usada exclusivamente com os pseudo-elementos ::before e ::after para inserir conteúdo gerado (texto, imagens ou atributos) dinamicamente no layout sem alterar o HTML. Ela permite adicionar elementos decorativos como ícones, aspas ou contadores.Uso principal: Deve ser usada com ::before ou ::after, ex: p::before { content: "Nota: "; }.
