@@ -201,6 +201,14 @@ p {
   height: 100vh;
 }
 
+.grid-main-heading {
+  margin-bottom: 1rem;
+}
+
+.grid-description {
+  padding-bottom: 6rem;
+}
+
 .grid {
   display: grid; /*Transforma o elemento em um contêiner de grade, permitindo organizar seus filhos em linhas e colunas.*/
   grid-template-columns: repeat(
@@ -219,7 +227,7 @@ p {
   font-size: 3rem;
   position: relative;
   padding-left: 5rem;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
 }
 
 .grid h3::before {
@@ -228,11 +236,18 @@ p {
   position: absolute;
   font-size: 8rem;
   font-style: italic;
-  top: -3rem;
+  top: -4rem;
   left: -2rem;
+  transform: rotate(5deg); /*rotação do elemento. no caso dos números*/
 }
 
 /*A propriedade content no CSS é usada exclusivamente com os pseudo-elementos ::before e ::after para inserir conteúdo gerado (texto, imagens ou atributos) dinamicamente no layout sem alterar o HTML. Ela permite adicionar elementos decorativos como ícones, aspas ou contadores.Uso principal: Deve ser usada com ::before ou ::after, ex: p::before { content: "Nota: "; }.
+
+::before  é um pseudoelemento CSS que insere conteúdo decorativo antes do conteúdo de um elemento selecionado. Ele cria um elemento "filho" virtual, geralmente inline, muito utilizado com a propriedade content para adicionar ícones, textos ou formas sem alterar o HTML original. Insere elementos visuais antes do conteúdo real (ex: adicionar um ícone antes de um título). content: É obrigatório usar content: ""; (mesmo que vazio) para o pseudoelemento funcionar. Pode ser estilizado como qualquer outro elemento HTML (cores, tamanhos, posicionamento absoluto). Exemplo: 
+h1::before {
+  content: "★ ";
+  color: gold;
+}
 
 */
 
