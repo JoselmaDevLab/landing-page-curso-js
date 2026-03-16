@@ -11,6 +11,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -145,6 +146,11 @@ table th {
   height: 6.5rem; /* adiciona um espaçamento de 70px para compensar a altura do menu fixo, evitando que o conteúdo fique oculto atrás do menu */
 }
 
+body .full-width {
+  width: 100%;
+  flex: 1 1 100%;
+}
+
 .intro-text-content,
 .intro-img {
   display: flex;
@@ -173,7 +179,7 @@ table th {
     --gap
   ); /* adiciona um espaçamento entre as colunas, usando a variável de espaçamento definida no :root */
   min-height: 100vh; /* faz o conteúdo introdutório ocupar toda a altura da tela */
-  top: -15rem;
+  /*top: -15rem;*/
 }
 
 .top3-content {
@@ -287,6 +293,75 @@ table th {
   transform: translate(-3%, 3%) scale(1.2) rotate(5deg);
 }
 
+.contact-form {
+  grid-column: span 2;
+}
+
+.contact-form .form-grid {
+  border: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+
+.form-group {
+  flex: 1 1 320px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+  border: none;
+  background: var(--white-color);
+  padding: 1.5rem 2rem;
+  width: 100%;
+  font-size: 3rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  box-shadow: 0 0 10px 2px var(--secondary-color);
+}
+
+.form-group button {
+  border: 0.5rem solid var(--white-color);
+  background: none;
+  color: var(--white-color);
+  padding: 1.5rem 2rem;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+
+.form-group button:hover {
+  background: var(--white-color);
+  color: var(--primary-color);
+}
+
+.form-group ::placeholder {
+  color: var(--light-gray-color);
+}
+
+.form-grid legend {
+  font-style: italic;
+  font-size: 1.6rem;
+  margin-bottom: 3rem;
+}
+
+.footer {
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.footer p {
+  margin: 0;
+  padding: 3rem;
+}
 /*A propriedade content no CSS é usada exclusivamente com os pseudo-elementos ::before e ::after para inserir conteúdo gerado (texto, imagens ou atributos) dinamicamente no layout sem alterar o HTML. Ela permite adicionar elementos decorativos como ícones, aspas ou contadores.Uso principal: Deve ser usada com ::before ou ::after, ex: p::before { content: "Nota: "; }.
 
 ::before  é um pseudoelemento CSS que insere conteúdo decorativo antes do conteúdo de um elemento selecionado. Ele cria um elemento "filho" virtual, geralmente inline, muito utilizado com a propriedade content para adicionar ícones, textos ou formas sem alterar o HTML original. Insere elementos visuais antes do conteúdo real (ex: adicionar um ícone antes de um título). content: É obrigatório usar content: ""; (mesmo que vazio) para o pseudoelemento funcionar. Pode ser estilizado como qualquer outro elemento HTML (cores, tamanhos, posicionamento absoluto). Exemplo: 
