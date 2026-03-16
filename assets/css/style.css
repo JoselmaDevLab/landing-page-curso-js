@@ -185,7 +185,7 @@ body .full-width {
 .top3-content {
   max-width: 64rem;
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   flex-flow: column nowrap;
   justify-content: center;
   text-align: center;
@@ -362,6 +362,96 @@ body .full-width {
   margin: 0;
   padding: 3rem;
 }
+
+.close-menu {
+  display: none;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--white-color);
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: var(--primary-color);
+  transform: rotate(-90deg);
+  border: 0.1rem solid var(--primary-color);
+}
+
+@media (max-width: 800px) {
+  .intro-content,
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-img {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .gallery-img img {
+    width: 100%;
+  }
+
+  .grid-one-content {
+    display: block;
+  }
+
+  .menu {
+    bottom: 0;
+    text-align: center;
+  }
+
+  .menu-content,
+  .menu-content ul {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .menu-content {
+    height: 100vh;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .close-menu-label::after {
+    content: "☰";
+    position: fixed;
+    z-index: 2;
+    top: 2rem;
+    right: 2rem;
+    background: var(--primary-color);
+    color: var(--white-color);
+    font-size: 3rem;
+    line-height: 3rem;
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+
+  .close-menu:checked ~ .menu {
+    display: block;
+  }
+
+  .close-menu:checked ~ .close-menu-label::after {
+    content: "×";
+  }
+
+  .menu-spacing {
+    display: none;
+  }
+}
+
 /*A propriedade content no CSS é usada exclusivamente com os pseudo-elementos ::before e ::after para inserir conteúdo gerado (texto, imagens ou atributos) dinamicamente no layout sem alterar o HTML. Ela permite adicionar elementos decorativos como ícones, aspas ou contadores.Uso principal: Deve ser usada com ::before ou ::after, ex: p::before { content: "Nota: "; }.
 
 ::before  é um pseudoelemento CSS que insere conteúdo decorativo antes do conteúdo de um elemento selecionado. Ele cria um elemento "filho" virtual, geralmente inline, muito utilizado com a propriedade content para adicionar ícones, textos ou formas sem alterar o HTML original. Insere elementos visuais antes do conteúdo real (ex: adicionar um ícone antes de um título). content: É obrigatório usar content: ""; (mesmo que vazio) para o pseudoelemento funcionar. Pode ser estilizado como qualquer outro elemento HTML (cores, tamanhos, posicionamento absoluto). Exemplo: 
